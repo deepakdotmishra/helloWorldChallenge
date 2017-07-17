@@ -1,0 +1,46 @@
+<div class="container">
+   <div class="row row-content" ng-if="!loggedIn">
+      <div class="col-xs-12 col-sm-3 col-sm-push-9">
+         <p style="padding:20px;"></p>
+         <h3 >Explore our capabilities</h3>
+      </div>
+      <div ng-if="!loggedIn" class="col-xs-12 col-sm-6 col-sm-pull-3">
+         <ul class="nav navbar-nav ">
+            <li >
+               <a ng-click="openLogin()">
+                  <h3>Login to see the power ...</h3>
+                  <span class="glyphicon glyphicon-log-in"></span> Login\Register
+               </a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   
+   <div class="row row-content" ng-if="loggedIn">
+    
+	<div class="col-xs-12 col-sm-6 col-sm-push-2">
+         <form ng-submit="searchTweet()">
+            <h3 >Which tweets are you looking for? </h3>
+            <input type="text" class="form-control input-lg" id="tweetSearchString" placeholder="Enter the keyword for search" ng-model="tweet.tweetSearchString" >
+            <br>
+            <input  type="submit" class="btn btn-info btn-sm pull-right" value="Search">
+            <p style="padding:20px;"></p>
+            <!--<p>{{myTxt}}</p>-->
+         </form>
+     </div>
+      
+	  <div class="row row-content">
+         <div class="col-xs-12 col-sm-9 col-sm-push-1">
+            <div class="table-responsive">
+               <table class="table table-striped">
+                  <tr ng-repeat= "tweet in tweets">
+                     <td>{{tweet.text}}
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+      </div>
+	  
+   </div>
+</div>
